@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prediction Result | Rising Waters</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-brand">🌊 Rising Waters</div>
+    <div class="navbar-tagline">AI-Powered Flood Early-Warning System</div>
+  </header>
+
+  <main class="container">
+    <section class="result-card">
+      {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+        <a class="btn-back" href="/">← Back to form</a>
+      {% else %}
+        <div class="result-badge {{ 'flood' if is_flood else 'safe' }}">
+          {{ '🚨' if is_flood else '✅' }}
+        </div>
+        <h1 class="{{ 'text-flood' if is_flood else 'text-safe' }}">{{ result }}</h1>
+
+        <table class="result-table">
+          <tr>
+            <td>Estimated Annual Rainfall</td>
+            <td>{{ annual_rainfall }} mm</td>
+          </tr>
+          {% if confidence is not none %}
+          <tr>
+            <td>Model Confidence</td>
+            <td>{{ confidence }}%</td>
+          </tr>
+          {% endif %}
+          <tr>
+            <td>Model Used</td>
+            <td>{{ model_name }}</td>
+          </tr>
+        </table>
+
+        {% if is_flood %}
+        <div class="alert alert-danger">
+          Recommended action: Issue advisory and prepare evacuation resources for this region.
+        </div>
+        {% else %}
+        <div class="alert alert-success">
+          Conditions currently indicate low flood risk. Continue routine monitoring.
+        </div>
+        {% endif %}
+
+        <a class="btn-back" href="/">← Run another prediction</a>
+      {% endif %}
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Rising Waters — Machine Learning Flood Prediction System</p>
+  </footer>
+</body>
+</html>

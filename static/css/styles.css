@@ -1,0 +1,258 @@
+:root {
+  --deep-blue: #0b3c5d;
+  --river-blue: #1d7ea6;
+  --sky-blue: #328cc1;
+  --alert-red: #d64545;
+  --safe-green: #2e8b57;
+  --warn-amber: #e2a83b;
+  --bg-light: #f4f8fb;
+  --card-white: #ffffff;
+  --text-dark: #12222e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+.navbar {
+  background: linear-gradient(120deg, var(--deep-blue), var(--river-blue));
+  color: #fff;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.navbar-tagline {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.hero h1 {
+  color: var(--deep-blue);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  color: #45606f;
+  margin-bottom: 1.2rem;
+}
+
+.alert {
+  padding: 0.9rem 1.1rem;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.alert-info {
+  background: #e2f1fb;
+  border-left: 4px solid var(--sky-blue);
+  color: var(--deep-blue);
+}
+
+.alert-warning {
+  background: #fdf3e3;
+  border-left: 4px solid var(--warn-amber);
+  color: #7a5a12;
+}
+
+.alert-danger {
+  background: #fbe6e6;
+  border-left: 4px solid var(--alert-red);
+  color: #8c2323;
+}
+
+.alert-success {
+  background: #e5f4ea;
+  border-left: 4px solid var(--safe-green);
+  color: #1f5c39;
+}
+
+.form-card {
+  background: var(--card-white);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 6px 24px rgba(11, 60, 93, 0.08);
+}
+
+.form-hint {
+  color: #45606f;
+  font-size: 0.88rem;
+  margin-top: -0.3rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--deep-blue);
+}
+
+input,
+select {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #cfe0eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--river-blue);
+  box-shadow: 0 0 0 3px rgba(29, 126, 166, 0.15);
+}
+
+.btn-predict {
+  margin-top: 1.8rem;
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(120deg, var(--river-blue), var(--deep-blue));
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-predict:hover {
+  transform: translateY(-1px);
+}
+
+.btn-predict:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.scenarios {
+  margin-top: 2.5rem;
+}
+
+.scenarios h2 {
+  color: var(--deep-blue);
+  margin-bottom: 1rem;
+}
+
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.scenario-card {
+  background: var(--card-white);
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 14px rgba(11, 60, 93, 0.06);
+}
+
+.scenario-card h3 {
+  margin-top: 0;
+  color: var(--river-blue);
+  font-size: 1rem;
+}
+
+.scenario-card p {
+  font-size: 0.88rem;
+  color: #45606f;
+}
+
+.result-card {
+  background: var(--card-white);
+  border-radius: 14px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(11, 60, 93, 0.08);
+}
+
+.result-badge {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.text-flood {
+  color: var(--alert-red);
+}
+
+.text-safe {
+  color: var(--safe-green);
+}
+
+.result-table {
+  margin: 1.5rem auto;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 420px;
+}
+
+.result-table td {
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid #e5eef3;
+  text-align: left;
+}
+
+.result-table td:first-child {
+  font-weight: 600;
+  color: var(--deep-blue);
+  width: 45%;
+}
+
+.btn-back {
+  display: inline-block;
+  margin-top: 1.2rem;
+  color: var(--river-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-back:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #7c92a0;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .form-grid,
+  .scenario-grid {
+    grid-template-columns: 1fr;
+  }
+}

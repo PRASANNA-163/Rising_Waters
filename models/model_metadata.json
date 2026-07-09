@@ -1,0 +1,16 @@
+{
+  "best_model": "Decision Tree",
+  "accuracy_by_model": {
+    "Decision Tree": 100.0,
+    "Random Forest": 100.0,
+    "K-Nearest Neighbors": 95.83,
+    "XGBoost": 100.0
+  },
+  "features": [
+    "AnnualRainfall",
+    "WinterRainfall",
+    "PreMonsoonRainfall",
+    "MonsoonRainfall",
+    "PostMonsoonRainfall"
+  ]
+}

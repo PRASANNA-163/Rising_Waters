@@ -1,0 +1,63 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <style>
+    .entity { fill: #ffffff; stroke: #0b3c5d; stroke-width: 2; }
+    .entity-title { fill: #0b3c5d; font-weight: bold; font-size: 15px; }
+    .attr { fill: #12222e; font-size: 12px; }
+    .rel-line { stroke: #1d7ea6; stroke-width: 2; fill: none; }
+    .rel-label { fill: #1d7ea6; font-size: 11px; font-style: italic; }
+  </style>
+
+  <!-- Region Entity -->
+  <rect class="entity" x="40" y="40" width="220" height="160" rx="8"/>
+  <text class="entity-title" x="55" y="65">REGION</text>
+  <line x1="40" y1="75" x2="260" y2="75" stroke="#0b3c5d"/>
+  <text class="attr" x="55" y="95">PK  region_id</text>
+  <text class="attr" x="55" y="115">region_name</text>
+  <text class="attr" x="55" y="135">state</text>
+  <text class="attr" x="55" y="155">river_basin</text>
+  <text class="attr" x="55" y="175">flood_prone_flag</text>
+
+  <!-- WeatherReading Entity -->
+  <rect class="entity" x="340" y="20" width="240" height="220" rx="8"/>
+  <text class="entity-title" x="355" y="45">WEATHER_READING</text>
+  <line x1="340" y1="55" x2="580" y2="55" stroke="#0b3c5d"/>
+  <text class="attr" x="355" y="75">PK  reading_id</text>
+  <text class="attr" x="355" y="95">FK  region_id</text>
+  <text class="attr" x="355" y="115">reading_date</text>
+  <text class="attr" x="355" y="135">season</text>
+  <text class="attr" x="355" y="155">annual_rainfall_mm</text>
+  <text class="attr" x="355" y="175">seasonal_rainfall_mm</text>
+  <text class="attr" x="355" y="195">cloud_visibility_km</text>
+  <text class="attr" x="355" y="215">humidity_pct</text>
+  <text class="attr" x="355" y="235">temperature_c</text>
+
+  <!-- RiverGauge Entity -->
+  <rect class="entity" x="660" y="40" width="200" height="140" rx="8"/>
+  <text class="entity-title" x="675" y="65">RIVER_GAUGE</text>
+  <line x1="660" y1="75" x2="860" y2="75" stroke="#0b3c5d"/>
+  <text class="attr" x="675" y="95">PK  gauge_id</text>
+  <text class="attr" x="675" y="115">FK  region_id</text>
+  <text class="attr" x="675" y="135">river_discharge_m3s</text>
+  <text class="attr" x="675" y="155">reading_id (FK)</text>
+
+  <!-- Prediction Entity -->
+  <rect class="entity" x="340" y="300" width="240" height="160" rx="8"/>
+  <text class="entity-title" x="355" y="325">FLOOD_PREDICTION</text>
+  <line x1="340" y1="335" x2="580" y2="335" stroke="#0b3c5d"/>
+  <text class="attr" x="355" y="355">PK  prediction_id</text>
+  <text class="attr" x="355" y="375">FK  reading_id</text>
+  <text class="attr" x="355" y="395">model_used</text>
+  <text class="attr" x="355" y="415">flood_risk_label</text>
+  <text class="attr" x="355" y="435">confidence_pct</text>
+  <text class="attr" x="355" y="455">predicted_at</text>
+
+  <!-- Relationships -->
+  <path class="rel-line" d="M260,120 L340,120"/>
+  <text class="rel-label" x="270" y="112">has (1..N)</text>
+
+  <path class="rel-line" d="M580,100 L660,100"/>
+  <text class="rel-label" x="585" y="92">recorded at</text>
+
+  <path class="rel-line" d="M460,240 L460,300"/>
+  <text class="rel-label" x="465" y="272">generates</text>
+</svg>
